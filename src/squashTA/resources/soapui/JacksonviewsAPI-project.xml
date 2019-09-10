@@ -3,12 +3,12 @@
                     resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config">
     <con:settings/>
     <con:interface xsi:type="con:RestService" id="7a625313-b4ae-447c-8d54-fb52f48bd9e4"
-                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://${DS_host_address}:8080" type="rest"
+                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://${host_address}:8080" type="rest"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <con:settings/>
         <con:definitionCache type="TEXT" rootPart=""/>
         <con:endpoints>
-            <con:endpoint>http://${DS_host_address}:8080</con:endpoint>
+            <con:endpoint>http://${host_address}:8080</con:endpoint>
         </con:endpoints>
         <con:resource name="contacts" path="/api/contacts" id="a208c0e8-7c7e-44a6-b805-d279caf45429">
             <con:settings/>
@@ -28,7 +28,7 @@
                     <con:mediaType>application/problem+json</con:mediaType>
                     <con:status>401</con:status>
                     <con:params/>
-                    <con:element xmlns:con1="http://${DS_host_address}/api/contacts">con1:Fault</con:element>
+                    <con:element xmlns:con1="http://${host_address}/api/contacts">con1:Fault</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
                     <con:mediaType>application/json;charset=UTF-8</con:mediaType>
@@ -42,9 +42,9 @@
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
                         </con:setting>
                     </con:settings>
-                    <con:endpoint>http://${DS_host_address}:8080</con:endpoint>
+                    <con:endpoint>http://${host_address}:8080</con:endpoint>
                     <con:request/>
-                    <con:originalUri>http://${DS_host_address}/api/contacts</con:originalUri>
+                    <con:originalUri>http://${host_address}/api/contacts</con:originalUri>
                     <con:credentials>
                         <con:authType>No Authorization</con:authType>
                     </con:credentials>
@@ -70,7 +70,7 @@
                     <con:mediaType>application/json;charset=UTF-8</con:mediaType>
                     <con:status>200</con:status>
                     <con:params/>
-                    <con:element xmlns:aut="http://${DS_host_address}/api/authenticate">aut:Response</con:element>
+                    <con:element xmlns:aut="http://${host_address}/api/authenticate">aut:Response</con:element>
                 </con:representation>
                 <con:representation type="REQUEST">
                     <con:mediaType>application/json</con:mediaType>
@@ -82,14 +82,14 @@
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
                         </con:setting>
                     </con:settings>
-                    <con:endpoint>http://${DS_host_address}:8080</con:endpoint>
+                    <con:endpoint>http://${host_address}:8080</con:endpoint>
                     <con:request>{
                         "password": "admin",
                         "rememberMe": false,
                         "username": "admin"
                         }
                     </con:request>
-                    <con:originalUri>http://${DS_host_address}/api/authenticate</con:originalUri>
+                    <con:originalUri>http://${host_address}/api/authenticate</con:originalUri>
                     <con:credentials>
                         <con:authType>No Authorization</con:authType>
                     </con:credentials>
@@ -108,21 +108,21 @@
             <con:settings/>
             <con:testStep type="restrequest" name="Auth" id="900e2311-d9d2-400b-9cee-209c6872b0e8">
                 <con:settings/>
-                <con:config service="http://${DS_host_address}:8080" resourcePath="/api/authenticate" methodName="Auth"
+                <con:config service="http://${host_address}:8080" resourcePath="/api/authenticate" methodName="Auth"
                             xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     <con:restRequest name="Auth" id="015d4077-bebc-40ca-af4a-f481063c6555" mediaType="application/json"
                                      postQueryString="false">
                         <con:settings>
                             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                         </con:settings>
-                        <con:endpoint>http://${DS_host_address}:8080</con:endpoint>
+                        <con:endpoint>http://${host_address}:8080</con:endpoint>
                         <con:request>{
                             "password": "admin",
                             "rememberMe": false,
                             "username": "admin"
                             }
                         </con:request>
-                        <con:originalUri>http://${DS_host_address}/api/authenticate</con:originalUri>
+                        <con:originalUri>http://${host_address}/api/authenticate</con:originalUri>
                         <con:assertion type="JsonPath Existence Match" id="79c7efec-abd9-4274-a3fa-beb529d101cf"
                                        name="JsonPath Existence Match">
                             <con:configuration>
@@ -161,7 +161,7 @@
             </con:testStep>
             <con:testStep type="restrequest" name="GetContacts" id="3cae149c-53a4-4ad5-aa67-a2d41d54878b">
                 <con:settings/>
-                <con:config service="http://${DS_host_address}:8080" methodName="GetContacts" resourcePath="/api/contacts"
+                <con:config service="http://${host_address}:8080" methodName="GetContacts" resourcePath="/api/contacts"
                             xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     <con:restRequest name="GetContacts" id="769d5a43-c918-4b45-b97a-ccbe56359c70"
                                      mediaType="application/json">
@@ -169,9 +169,9 @@
                             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
                         </con:settings>
                         <con:encoding>UTF-8</con:encoding>
-                        <con:endpoint>http://${DS_host_address}:8080</con:endpoint>
+                        <con:endpoint>http://${host_address}:8080</con:endpoint>
                         <con:request/>
-                        <con:originalUri>http://${DS_host_address}/api/contacts</con:originalUri>
+                        <con:originalUri>http://${host_address}/api/contacts</con:originalUri>
                         <con:assertion type="JsonPath Match" id="db553c23-cbc8-49a7-a0da-69509f015ff2"
                                        name="FirstNameMatch">
                             <con:configuration>
